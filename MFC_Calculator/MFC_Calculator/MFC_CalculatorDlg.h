@@ -32,6 +32,15 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
+
+public:
+	bool isFirst, isMathSignClicked;
+
+public:
+	inline void InitCString(CString &str) { str = TEXT(""); }
+	void InterimCalculate(CString &, CString &);
+	void MathematicSignCalculate(CString, int &add, CString num);
+
 public:
 	CStatic m_inputStaticC;
 	afx_msg void OnBnClickedButton18();
@@ -48,4 +57,8 @@ public:
 	afx_msg void OnBnClickedButton2();
 	afx_msg void OnBnClickedButton3();
 	CString m_outputStaticV;
+	afx_msg void OnBnClickedButton16();
+	afx_msg void OnBnClickedButton12();
+	afx_msg void OnBnClickedButton8();
+	afx_msg void OnBnClickedButton4();
 };

@@ -81,6 +81,10 @@ BEGIN_MESSAGE_MAP(CMFC_CalculatorDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON7, &CMFC_CalculatorDlg::OnBnClickedButton7)
 	ON_BN_CLICKED(IDC_BUTTON2, &CMFC_CalculatorDlg::OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_BUTTON3, &CMFC_CalculatorDlg::OnBnClickedButton3)
+	ON_BN_CLICKED(IDC_BUTTON16, &CMFC_CalculatorDlg::OnBnClickedButton16)
+	ON_BN_CLICKED(IDC_BUTTON12, &CMFC_CalculatorDlg::OnBnClickedButton12)
+	ON_BN_CLICKED(IDC_BUTTON8, &CMFC_CalculatorDlg::OnBnClickedButton8)
+	ON_BN_CLICKED(IDC_BUTTON4, &CMFC_CalculatorDlg::OnBnClickedButton4)
 END_MESSAGE_MAP()
 
 
@@ -117,6 +121,8 @@ BOOL CMFC_CalculatorDlg::OnInitDialog()
 
 	// TODO: 여기에 추가 초기화 작업을 추가합니다.
 	m_inputStaticV = TEXT("0");
+	isFirst = true;
+	isMathSignClicked = false;
 
 	UpdateData(FALSE);
 
@@ -173,109 +179,159 @@ HCURSOR CMFC_CalculatorDlg::OnQueryDragIcon()
 }
 
 
-
+// Num Button
 void CMFC_CalculatorDlg::OnBnClickedButton18()
 {
 	// TODO: Add your control notification handler code here
+	if (isMathSignClicked)
+		InitCString(m_inputStaticV);
+
 	if (m_inputStaticV == TEXT("0"))
 		m_inputStaticV = TEXT("0");
 	else
 		m_inputStaticV += TEXT("0");
+
+	isMathSignClicked = false;
 
 	UpdateData(FALSE);
 }
 void CMFC_CalculatorDlg::OnBnClickedButton13()
 {
 	// TODO: Add your control notification handler code here
+	if (isMathSignClicked)
+		InitCString(m_inputStaticV);
+
 	if (m_inputStaticV == TEXT("0"))
 		m_inputStaticV = TEXT("1");
 	else
 		m_inputStaticV += TEXT("1");
+
+	isMathSignClicked = false;
 
 	UpdateData(FALSE);
 }
 void CMFC_CalculatorDlg::OnBnClickedButton14()
 {
 	// TODO: Add your control notification handler code here
+	if (isMathSignClicked)
+		InitCString(m_inputStaticV);
+
 	if (m_inputStaticV == TEXT("0"))
 		m_inputStaticV = TEXT("2");
 	else
 		m_inputStaticV += TEXT("2");
+
+	isMathSignClicked = false;
 
 	UpdateData(FALSE);
 }
 void CMFC_CalculatorDlg::OnBnClickedButton15()
 {
 	// TODO: Add your control notification handler code here
+	if (isMathSignClicked)
+		InitCString(m_inputStaticV);
+
 	if (m_inputStaticV == TEXT("0"))
 		m_inputStaticV = TEXT("3");
 	else
 		m_inputStaticV += TEXT("3");
+
+	isMathSignClicked = false;
 
 	UpdateData(FALSE);
 }
 void CMFC_CalculatorDlg::OnBnClickedButton9()
 {
 	// TODO: Add your control notification handler code here
+	if (isMathSignClicked)
+		InitCString(m_inputStaticV);
+
 	if (m_inputStaticV == TEXT("0"))
 		m_inputStaticV = TEXT("4");
 	else
 		m_inputStaticV += TEXT("4");
+
+	isMathSignClicked = false;
 
 	UpdateData(FALSE);
 }
 void CMFC_CalculatorDlg::OnBnClickedButton10()
 {
 	// TODO: Add your control notification handler code here
+	if (isMathSignClicked)
+		InitCString(m_inputStaticV);
+
 	if (m_inputStaticV == TEXT("0"))
 		m_inputStaticV = TEXT("5");
 	else
 		m_inputStaticV += TEXT("5");
+
+	isMathSignClicked = false;
 
 	UpdateData(FALSE);
 }
 void CMFC_CalculatorDlg::OnBnClickedButton11()
 {
 	// TODO: Add your control notification handler code here
+	if (isMathSignClicked)
+		InitCString(m_inputStaticV);
+
 	if (m_inputStaticV == TEXT("0"))
 		m_inputStaticV = TEXT("6");
 	else
 		m_inputStaticV += TEXT("6");
+
+	isMathSignClicked = false;
 
 	UpdateData(FALSE);
 }
 void CMFC_CalculatorDlg::OnBnClickedButton5()
 {
 	// TODO: Add your control notification handler code here
+	if (isMathSignClicked)
+		InitCString(m_inputStaticV);
+
 	if (m_inputStaticV == TEXT("0"))
 		m_inputStaticV = TEXT("7");
 	else
 		m_inputStaticV += TEXT("7");
+
+	isMathSignClicked = false;
 
 	UpdateData(FALSE);
 }
 void CMFC_CalculatorDlg::OnBnClickedButton6()
 {
 	// TODO: Add your control notification handler code here.
+	if (isMathSignClicked)
+		InitCString(m_inputStaticV);
+
 	if (m_inputStaticV == TEXT("0"))
 		m_inputStaticV = TEXT("8");
 	else
 		m_inputStaticV += TEXT("8");
+
+	isMathSignClicked = false;
 
 	UpdateData(FALSE);
 }
 void CMFC_CalculatorDlg::OnBnClickedButton7()
 {
 	// TODO: Add your control notification handler code here
+	if (isMathSignClicked)
+		InitCString(m_inputStaticV);
+
 	if (m_inputStaticV == TEXT("0"))
 		m_inputStaticV = TEXT("9");
 	else
 		m_inputStaticV += TEXT("9");
 
+	isMathSignClicked = false;
+
 	UpdateData(FALSE);
 }
 
-
+// CE, C Button
 void CMFC_CalculatorDlg::OnBnClickedButton2()
 {
 	// TODO: Add your control notification handler code here
@@ -283,13 +339,180 @@ void CMFC_CalculatorDlg::OnBnClickedButton2()
 
 	UpdateData(FALSE);
 }
-
-
 void CMFC_CalculatorDlg::OnBnClickedButton3()
 {
 	// TODO: Add your control notification handler code here
 	m_inputStaticV = TEXT("0");
-	m_outputStaticV = TEXT("");
+	InitCString(m_outputStaticV);
+
+	UpdateData(FALSE);
+}
+
+// Mathematical Sign Button
+void CMFC_CalculatorDlg::MathematicSignCalculate(CString sign, int &add, CString num)
+{
+	switch (sign[0])
+	{
+	case '+':  add += _ttoi(num); break;
+	case '-':  add -= _ttoi(num); break;
+	case '*':  add *= _ttoi(num); break;
+	case '/':  add /= _ttoi(num); break;
+	default: break;
+	}
+}
+void CMFC_CalculatorDlg::InterimCalculate(CString &inputStr, CString &outputStr)
+{
+	UpdateData(TRUE);
+
+	bool isAdd = false;
+	int add;
+	CString num, sign;
+
+	outputStr += inputStr;
+	outputStr += TEXT(" ");
+
+	int i = 0;
+	for (; i < outputStr.GetLength(); ++i)
+	{
+		if (outputStr[i] == ' ')
+			break;
+		
+		num += outputStr[i];
+	}
+	add = _ttoi(num);
+
+	InitCString(num);
+	int check = 0;
+	for (i += 1; i < outputStr.GetLength(); ++i)
+	{
+		if ('0' <= outputStr[i] && outputStr[i] <= '9')
+			num += outputStr[i];
+		else if(outputStr[i] == '+')
+		{
+			InitCString(num);
+			sign = TEXT("+");
+		}
+		else if (outputStr[i] == '-')
+		{
+			InitCString(num);
+			sign = TEXT("-");
+		}
+		else if (outputStr[i] == '*')
+		{
+			InitCString(num);
+			sign = TEXT("*");
+		}
+		else if (outputStr[i] == '/')
+		{
+			InitCString(num);
+			sign = TEXT("/");
+		}
+		else if (outputStr[i] == ' ')
+		{
+			if (++check == 2)
+			{
+				MathematicSignCalculate(sign, add, num);
+				check = 0;
+			}
+		}
+	}
+
+	inputStr.Format(_T("%d"), add);
+	UpdateData(FALSE);
+}
+void CMFC_CalculatorDlg::OnBnClickedButton16()
+{
+	// TODO: Add your control notification handler code here
+	if (m_inputStaticV == TEXT("0"))
+		return;
+	if (isFirst)
+	{
+		m_outputStaticV = m_inputStaticV + TEXT(" + ");
+		isFirst = false;
+		isMathSignClicked = true;
+
+		UpdateData(FALSE);
+
+		return;
+	}
+	
+	InterimCalculate(m_inputStaticV, m_outputStaticV);
+	m_outputStaticV += TEXT("+ ");
+
+	isFirst = false;
+	isMathSignClicked = true;
+
+	UpdateData(FALSE);
+}
+void CMFC_CalculatorDlg::OnBnClickedButton12()
+{
+	// TODO: Add your control notification handler code here
+	if (m_inputStaticV == TEXT("0"))
+		return;
+	if (isFirst)
+	{
+		m_outputStaticV = m_inputStaticV + TEXT(" - ");
+		isFirst = false;
+		isMathSignClicked = true;
+
+		UpdateData(FALSE);
+
+		return;
+	}
+
+	InterimCalculate(m_inputStaticV, m_outputStaticV);
+	m_outputStaticV += TEXT("- ");
+
+	isFirst = false;
+	isMathSignClicked = true;
+
+	UpdateData(FALSE);
+}
+void CMFC_CalculatorDlg::OnBnClickedButton8()
+{
+	// TODO: Add your control notification handler code here
+	if (m_inputStaticV == TEXT("0"))
+		return;
+	if (isFirst)
+	{
+		m_outputStaticV = m_inputStaticV + TEXT(" * ");
+		isFirst = false;
+		isMathSignClicked = true;
+
+		UpdateData(FALSE);
+
+		return;
+	}
+
+	InterimCalculate(m_inputStaticV, m_outputStaticV);
+	m_outputStaticV += TEXT("* ");
+
+	isFirst = false;
+	isMathSignClicked = true;
+
+	UpdateData(FALSE);
+}
+void CMFC_CalculatorDlg::OnBnClickedButton4()
+{
+	// TODO: Add your control notification handler code here
+	if (m_inputStaticV == TEXT("0"))
+		return;
+	if (isFirst)
+	{
+		m_outputStaticV = m_inputStaticV + TEXT(" / ");
+		isFirst = false;
+		isMathSignClicked = true;
+
+		UpdateData(FALSE);
+
+		return;
+	}
+
+	InterimCalculate(m_inputStaticV, m_outputStaticV);
+	m_outputStaticV += TEXT("/ ");
+
+	isFirst = false;
+	isMathSignClicked = true;
 
 	UpdateData(FALSE);
 }
