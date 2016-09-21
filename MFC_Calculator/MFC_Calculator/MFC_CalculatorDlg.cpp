@@ -85,6 +85,7 @@ BEGIN_MESSAGE_MAP(CMFC_CalculatorDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON12, &CMFC_CalculatorDlg::OnBnClickedButton12)
 	ON_BN_CLICKED(IDC_BUTTON8, &CMFC_CalculatorDlg::OnBnClickedButton8)
 	ON_BN_CLICKED(IDC_BUTTON4, &CMFC_CalculatorDlg::OnBnClickedButton4)
+	ON_BN_CLICKED(IDC_BUTTON1, &CMFC_CalculatorDlg::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -513,6 +514,20 @@ void CMFC_CalculatorDlg::OnBnClickedButton4()
 
 	isFirst = false;
 	isMathSignClicked = true;
+
+	UpdateData(FALSE);
+}
+
+
+void CMFC_CalculatorDlg::OnBnClickedButton1()
+{
+	// TODO: Add your control notification handler code here
+	if (m_inputStaticV != '0')
+	{
+		m_inputStaticV.Delete(0, 1);
+		if (m_inputStaticV == "")
+			m_inputStaticV = TEXT("0");
+	}
 
 	UpdateData(FALSE);
 }
