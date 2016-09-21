@@ -51,6 +51,7 @@ END_MESSAGE_MAP()
 
 CMFC_CalculatorDlg::CMFC_CalculatorDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_MFC_CALCULATOR_DIALOG, pParent)
+	, m_inputStaticV(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -58,12 +59,24 @@ CMFC_CalculatorDlg::CMFC_CalculatorDlg(CWnd* pParent /*=NULL*/)
 void CMFC_CalculatorDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_STATIC2, m_inputStaticC);
+	DDX_Text(pDX, IDC_STATIC2, m_inputStaticV);
 }
 
 BEGIN_MESSAGE_MAP(CMFC_CalculatorDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BUTTON18, &CMFC_CalculatorDlg::OnBnClickedButton18)
+	ON_BN_CLICKED(IDC_BUTTON13, &CMFC_CalculatorDlg::OnBnClickedButton13)
+	ON_BN_CLICKED(IDC_BUTTON14, &CMFC_CalculatorDlg::OnBnClickedButton14)
+	ON_BN_CLICKED(IDC_BUTTON15, &CMFC_CalculatorDlg::OnBnClickedButton15)
+	ON_BN_CLICKED(IDC_BUTTON9, &CMFC_CalculatorDlg::OnBnClickedButton9)
+	ON_BN_CLICKED(IDC_BUTTON10, &CMFC_CalculatorDlg::OnBnClickedButton10)
+	ON_BN_CLICKED(IDC_BUTTON11, &CMFC_CalculatorDlg::OnBnClickedButton11)
+	ON_BN_CLICKED(IDC_BUTTON5, &CMFC_CalculatorDlg::OnBnClickedButton5)
+	ON_BN_CLICKED(IDC_BUTTON6, &CMFC_CalculatorDlg::OnBnClickedButton6)
+	ON_BN_CLICKED(IDC_BUTTON7, &CMFC_CalculatorDlg::OnBnClickedButton7)
 END_MESSAGE_MAP()
 
 
@@ -152,3 +165,75 @@ HCURSOR CMFC_CalculatorDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CMFC_CalculatorDlg::OnBnClickedButton18()
+{
+	// TODO: Add your control notification handler code here
+	m_inputStaticV += TEXT("0");
+
+	UpdateData(FALSE);
+}
+void CMFC_CalculatorDlg::OnBnClickedButton13()
+{
+	// TODO: Add your control notification handler code here
+	m_inputStaticV += TEXT("1");
+
+	UpdateData(FALSE);
+}
+void CMFC_CalculatorDlg::OnBnClickedButton14()
+{
+	// TODO: Add your control notification handler code here
+	m_inputStaticV += TEXT("2");
+
+	UpdateData(FALSE);
+}
+void CMFC_CalculatorDlg::OnBnClickedButton15()
+{
+	// TODO: Add your control notification handler code here
+	m_inputStaticV += TEXT("3");
+
+	UpdateData(FALSE);
+}
+void CMFC_CalculatorDlg::OnBnClickedButton9()
+{
+	// TODO: Add your control notification handler code here
+	m_inputStaticV += TEXT("4");
+
+	UpdateData(FALSE);
+}
+void CMFC_CalculatorDlg::OnBnClickedButton10()
+{
+	// TODO: Add your control notification handler code here
+	m_inputStaticV += TEXT("5");
+
+	UpdateData(FALSE);
+}
+void CMFC_CalculatorDlg::OnBnClickedButton11()
+{
+	// TODO: Add your control notification handler code here
+	m_inputStaticV += TEXT("6");
+
+	UpdateData(FALSE);
+}
+void CMFC_CalculatorDlg::OnBnClickedButton5()
+{
+	// TODO: Add your control notification handler code here
+	m_inputStaticV += TEXT("7");
+
+	UpdateData(FALSE);
+}
+void CMFC_CalculatorDlg::OnBnClickedButton6()
+{
+	// TODO: Add your control notification handler code here.
+	m_inputStaticV += TEXT("8");
+
+	UpdateData(FALSE);
+}
+void CMFC_CalculatorDlg::OnBnClickedButton7()
+{
+	// TODO: Add your control notification handler code here
+	m_inputStaticV += TEXT("9");
+
+	UpdateData(FALSE);
+}
