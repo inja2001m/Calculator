@@ -539,7 +539,7 @@ void CMFC_CalculatorDlg::OnBnClickedButton1()
 	// TODO: Add your control notification handler code here
 	if (m_inputStaticV != '0')
 	{
-		m_inputStaticV.Delete(0, 1);
+		m_inputStaticV.Delete(m_inputStaticV.GetLength() - 1, 1);
 		if (m_inputStaticV == "")
 			m_inputStaticV = TEXT("0");
 	}
