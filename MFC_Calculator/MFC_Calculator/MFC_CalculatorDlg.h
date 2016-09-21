@@ -46,4 +46,6 @@ public:
 	afx_msg void OnBnClickedButton7();
 	CString m_inputStaticV;
 	afx_msg void OnBnClickedButton2();
+	afx_msg void OnBnClickedButton3();
+	CString m_outputStaticV;
 };

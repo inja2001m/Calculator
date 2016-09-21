@@ -52,6 +52,7 @@ END_MESSAGE_MAP()
 CMFC_CalculatorDlg::CMFC_CalculatorDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_MFC_CALCULATOR_DIALOG, pParent)
 	, m_inputStaticV(_T(""))
+	, m_outputStaticV(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -61,6 +62,7 @@ void CMFC_CalculatorDlg::DoDataExchange(CDataExchange* pDX)
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_STATIC2, m_inputStaticC);
 	DDX_Text(pDX, IDC_STATIC2, m_inputStaticV);
+	DDX_Text(pDX, IDC_STATIC1, m_outputStaticV);
 }
 
 BEGIN_MESSAGE_MAP(CMFC_CalculatorDlg, CDialogEx)
@@ -78,6 +80,7 @@ BEGIN_MESSAGE_MAP(CMFC_CalculatorDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON6, &CMFC_CalculatorDlg::OnBnClickedButton6)
 	ON_BN_CLICKED(IDC_BUTTON7, &CMFC_CalculatorDlg::OnBnClickedButton7)
 	ON_BN_CLICKED(IDC_BUTTON2, &CMFC_CalculatorDlg::OnBnClickedButton2)
+	ON_BN_CLICKED(IDC_BUTTON3, &CMFC_CalculatorDlg::OnBnClickedButton3)
 END_MESSAGE_MAP()
 
 
@@ -277,6 +280,16 @@ void CMFC_CalculatorDlg::OnBnClickedButton2()
 {
 	// TODO: Add your control notification handler code here
 	m_inputStaticV = TEXT("0");
+
+	UpdateData(FALSE);
+}
+
+
+void CMFC_CalculatorDlg::OnBnClickedButton3()
+{
+	// TODO: Add your control notification handler code here
+	m_inputStaticV = TEXT("0");
+	m_outputStaticV = TEXT("");
 
 	UpdateData(FALSE);
 }
