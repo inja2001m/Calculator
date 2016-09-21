@@ -1,2 +1,2 @@
-# Calculator(MFC기반 계산기)
+# Calculator(MFC 기반 계산기)
 
