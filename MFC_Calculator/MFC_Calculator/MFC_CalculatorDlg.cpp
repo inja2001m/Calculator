@@ -571,7 +571,10 @@ void CMFC_CalculatorDlg::OnBnClickedButton17()
 		result = beforeResult * _ttoi(m_inputStaticV);
 		break;
 	case 4:
-		result = beforeResult / _ttoi(m_inputStaticV);
+		if (m_inputStaticV == '0')
+			result = 0;
+		else
+			result = beforeResult / _ttoi(m_inputStaticV);
 		break;
 	default:
 		break;
