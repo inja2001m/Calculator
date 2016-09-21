@@ -53,6 +53,7 @@ CMFC_CalculatorDlg::CMFC_CalculatorDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_MFC_CALCULATOR_DIALOG, pParent)
 	, m_inputStaticV(_T(""))
 	, m_outputStaticV(_T(""))
+	, m_listBoxV(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -63,6 +64,8 @@ void CMFC_CalculatorDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_STATIC2, m_inputStaticC);
 	DDX_Text(pDX, IDC_STATIC2, m_inputStaticV);
 	DDX_Text(pDX, IDC_STATIC1, m_outputStaticV);
+	DDX_LBString(pDX, IDC_LIST1, m_listBoxV);
+	DDX_Control(pDX, IDC_LIST1, m_listBoxC);
 }
 
 BEGIN_MESSAGE_MAP(CMFC_CalculatorDlg, CDialogEx)
@@ -86,6 +89,7 @@ BEGIN_MESSAGE_MAP(CMFC_CalculatorDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON8, &CMFC_CalculatorDlg::OnBnClickedButton8)
 	ON_BN_CLICKED(IDC_BUTTON4, &CMFC_CalculatorDlg::OnBnClickedButton4)
 	ON_BN_CLICKED(IDC_BUTTON1, &CMFC_CalculatorDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDC_BUTTON17, &CMFC_CalculatorDlg::OnBnClickedButton17)
 END_MESSAGE_MAP()
 
 
@@ -124,6 +128,8 @@ BOOL CMFC_CalculatorDlg::OnInitDialog()
 	m_inputStaticV = TEXT("0");
 	isFirst = true;
 	isMathSignClicked = false;
+	resultSign = 0;
+	beforeResult = 0;
 
 	UpdateData(FALSE);
 
@@ -418,6 +424,7 @@ void CMFC_CalculatorDlg::InterimCalculate(CString &inputStr, CString &outputStr)
 		}
 	}
 
+	beforeResult = add;
 	inputStr.Format(_T("%d"), add);
 	UpdateData(FALSE);
 }
@@ -431,6 +438,8 @@ void CMFC_CalculatorDlg::OnBnClickedButton16()
 		m_outputStaticV = m_inputStaticV + TEXT(" + ");
 		isFirst = false;
 		isMathSignClicked = true;
+		resultSign = 1;
+		beforeResult = _ttoi(m_inputStaticV);
 
 		UpdateData(FALSE);
 
@@ -455,6 +464,8 @@ void CMFC_CalculatorDlg::OnBnClickedButton12()
 		m_outputStaticV = m_inputStaticV + TEXT(" - ");
 		isFirst = false;
 		isMathSignClicked = true;
+		resultSign = 2;
+		beforeResult = _ttoi(m_inputStaticV);
 
 		UpdateData(FALSE);
 
@@ -479,6 +490,8 @@ void CMFC_CalculatorDlg::OnBnClickedButton8()
 		m_outputStaticV = m_inputStaticV + TEXT(" * ");
 		isFirst = false;
 		isMathSignClicked = true;
+		resultSign = 3;
+		beforeResult = _ttoi(m_inputStaticV);
 
 		UpdateData(FALSE);
 
@@ -503,6 +516,8 @@ void CMFC_CalculatorDlg::OnBnClickedButton4()
 		m_outputStaticV = m_inputStaticV + TEXT(" / ");
 		isFirst = false;
 		isMathSignClicked = true;
+		resultSign = 4;
+		beforeResult = _ttoi(m_inputStaticV);
 
 		UpdateData(FALSE);
 
@@ -528,6 +543,48 @@ void CMFC_CalculatorDlg::OnBnClickedButton1()
 		if (m_inputStaticV == "")
 			m_inputStaticV = TEXT("0");
 	}
+
+	UpdateData(FALSE);
+}
+
+
+void CMFC_CalculatorDlg::OnBnClickedButton17()
+{
+	// TODO: Add your control notification handler code here
+	if (m_outputStaticV.IsEmpty())
+		return;
+
+	CString str, strTemp;
+
+	str = m_outputStaticV;
+	
+	int result;
+	switch (resultSign)
+	{
+	case 1:
+		result = beforeResult + _ttoi(m_inputStaticV);
+		break;
+	case 2:
+		result = beforeResult - _ttoi(m_inputStaticV);
+		break;
+	case 3:
+		result = beforeResult * _ttoi(m_inputStaticV);
+		break;
+	case 4:
+		result = beforeResult / _ttoi(m_inputStaticV);
+		break;
+	default:
+		break;
+	}
+
+	strTemp.Format(_T("%d"), result);
+	str += m_inputStaticV + TEXT(" = ") + strTemp;
+
+	m_listBoxC.AddString(str);
+
+	InitCString(m_outputStaticV);
+
+	m_inputStaticV = strTemp;
 
 	UpdateData(FALSE);
 }

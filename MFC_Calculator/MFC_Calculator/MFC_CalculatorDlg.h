@@ -35,6 +35,7 @@ protected:
 
 public:
 	bool isFirst, isMathSignClicked;
+	int resultSign, beforeResult;
 
 public:
 	inline void InitCString(CString &str) { str = TEXT(""); }
@@ -62,4 +63,7 @@ public:
 	afx_msg void OnBnClickedButton8();
 	afx_msg void OnBnClickedButton4();
 	afx_msg void OnBnClickedButton1();
+	CString m_listBoxV;
+	afx_msg void OnBnClickedButton17();
+	CListBox m_listBoxC;
 };
