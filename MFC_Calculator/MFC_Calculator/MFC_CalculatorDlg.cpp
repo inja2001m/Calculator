@@ -77,6 +77,7 @@ BEGIN_MESSAGE_MAP(CMFC_CalculatorDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON5, &CMFC_CalculatorDlg::OnBnClickedButton5)
 	ON_BN_CLICKED(IDC_BUTTON6, &CMFC_CalculatorDlg::OnBnClickedButton6)
 	ON_BN_CLICKED(IDC_BUTTON7, &CMFC_CalculatorDlg::OnBnClickedButton7)
+	ON_BN_CLICKED(IDC_BUTTON2, &CMFC_CalculatorDlg::OnBnClickedButton2)
 END_MESSAGE_MAP()
 
 
@@ -112,6 +113,9 @@ BOOL CMFC_CalculatorDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 작은 아이콘을 설정합니다.
 
 	// TODO: 여기에 추가 초기화 작업을 추가합니다.
+	m_inputStaticV = TEXT("0");
+
+	UpdateData(FALSE);
 
 	return TRUE;  // 포커스를 컨트롤에 설정하지 않으면 TRUE를 반환합니다.
 }
@@ -170,70 +174,109 @@ HCURSOR CMFC_CalculatorDlg::OnQueryDragIcon()
 void CMFC_CalculatorDlg::OnBnClickedButton18()
 {
 	// TODO: Add your control notification handler code here
-	m_inputStaticV += TEXT("0");
+	if (m_inputStaticV == TEXT("0"))
+		m_inputStaticV = TEXT("0");
+	else
+		m_inputStaticV += TEXT("0");
 
 	UpdateData(FALSE);
 }
 void CMFC_CalculatorDlg::OnBnClickedButton13()
 {
 	// TODO: Add your control notification handler code here
-	m_inputStaticV += TEXT("1");
+	if (m_inputStaticV == TEXT("0"))
+		m_inputStaticV = TEXT("1");
+	else
+		m_inputStaticV += TEXT("1");
 
 	UpdateData(FALSE);
 }
 void CMFC_CalculatorDlg::OnBnClickedButton14()
 {
 	// TODO: Add your control notification handler code here
-	m_inputStaticV += TEXT("2");
+	if (m_inputStaticV == TEXT("0"))
+		m_inputStaticV = TEXT("2");
+	else
+		m_inputStaticV += TEXT("2");
 
 	UpdateData(FALSE);
 }
 void CMFC_CalculatorDlg::OnBnClickedButton15()
 {
 	// TODO: Add your control notification handler code here
-	m_inputStaticV += TEXT("3");
+	if (m_inputStaticV == TEXT("0"))
+		m_inputStaticV = TEXT("3");
+	else
+		m_inputStaticV += TEXT("3");
 
 	UpdateData(FALSE);
 }
 void CMFC_CalculatorDlg::OnBnClickedButton9()
 {
 	// TODO: Add your control notification handler code here
-	m_inputStaticV += TEXT("4");
+	if (m_inputStaticV == TEXT("0"))
+		m_inputStaticV = TEXT("4");
+	else
+		m_inputStaticV += TEXT("4");
 
 	UpdateData(FALSE);
 }
 void CMFC_CalculatorDlg::OnBnClickedButton10()
 {
 	// TODO: Add your control notification handler code here
-	m_inputStaticV += TEXT("5");
+	if (m_inputStaticV == TEXT("0"))
+		m_inputStaticV = TEXT("5");
+	else
+		m_inputStaticV += TEXT("5");
 
 	UpdateData(FALSE);
 }
 void CMFC_CalculatorDlg::OnBnClickedButton11()
 {
 	// TODO: Add your control notification handler code here
-	m_inputStaticV += TEXT("6");
+	if (m_inputStaticV == TEXT("0"))
+		m_inputStaticV = TEXT("6");
+	else
+		m_inputStaticV += TEXT("6");
 
 	UpdateData(FALSE);
 }
 void CMFC_CalculatorDlg::OnBnClickedButton5()
 {
 	// TODO: Add your control notification handler code here
-	m_inputStaticV += TEXT("7");
+	if (m_inputStaticV == TEXT("0"))
+		m_inputStaticV = TEXT("7");
+	else
+		m_inputStaticV += TEXT("7");
 
 	UpdateData(FALSE);
 }
 void CMFC_CalculatorDlg::OnBnClickedButton6()
 {
 	// TODO: Add your control notification handler code here.
-	m_inputStaticV += TEXT("8");
+	if (m_inputStaticV == TEXT("0"))
+		m_inputStaticV = TEXT("8");
+	else
+		m_inputStaticV += TEXT("8");
 
 	UpdateData(FALSE);
 }
 void CMFC_CalculatorDlg::OnBnClickedButton7()
 {
 	// TODO: Add your control notification handler code here
-	m_inputStaticV += TEXT("9");
+	if (m_inputStaticV == TEXT("0"))
+		m_inputStaticV = TEXT("9");
+	else
+		m_inputStaticV += TEXT("9");
+
+	UpdateData(FALSE);
+}
+
+
+void CMFC_CalculatorDlg::OnBnClickedButton2()
+{
+	// TODO: Add your control notification handler code here
+	m_inputStaticV = TEXT("0");
 
 	UpdateData(FALSE);
 }
