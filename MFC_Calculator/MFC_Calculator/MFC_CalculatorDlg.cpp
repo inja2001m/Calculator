@@ -451,6 +451,7 @@ void CMFC_CalculatorDlg::OnBnClickedButton16()
 
 	isFirst = false;
 	isMathSignClicked = true;
+	resultSign = 1;
 
 	UpdateData(FALSE);
 }
@@ -477,6 +478,7 @@ void CMFC_CalculatorDlg::OnBnClickedButton12()
 
 	isFirst = false;
 	isMathSignClicked = true;
+	resultSign = 2;
 
 	UpdateData(FALSE);
 }
@@ -503,6 +505,7 @@ void CMFC_CalculatorDlg::OnBnClickedButton8()
 
 	isFirst = false;
 	isMathSignClicked = true;
+	resultSign = 3;
 
 	UpdateData(FALSE);
 }
@@ -529,6 +532,7 @@ void CMFC_CalculatorDlg::OnBnClickedButton4()
 
 	isFirst = false;
 	isMathSignClicked = true;
+	resultSign = 4;
 
 	UpdateData(FALSE);
 }
